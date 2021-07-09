@@ -14,9 +14,6 @@ class CpurBot:
         opts.headless = True
         assert opts.headless
         self.driver = webdriver.Firefox(options=opts)
-        
-    def closeBrowser(self):
-        self.driver.close()
     def login(self):
         driver = self.driver
         t = 4
@@ -46,7 +43,7 @@ class CpurBot:
             table = table_MN[1]
             credit_points = credit_points+sum(table['Credit'].tolist())
             credit_score = credit_score+sum(table['Point Secured'].tolist())
-        cgpa = credit_score/credit_points    
+        cgpa = credit_score/credit_points
         return cgpa        
 uid = input('Enter University Id: ')
 password = input('Enter Password: ')
